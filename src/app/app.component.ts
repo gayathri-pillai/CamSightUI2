@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   }
   public showWebcam = true;
   public reset = true;
+  public done = false;
+  public show = false;
   public videoOptions: MediaTrackConstraints = {
     // width: {ideal: 1024},
     // height: {ideal: 576}
@@ -36,7 +38,6 @@ export class AppComponent implements OnInit {
     this.service.sendImage(this.employee)
     .subscribe(
       data => {
-        console.log("sdsadasdsadsadsa")
       }
     )
   }
@@ -53,12 +54,14 @@ export class AppComponent implements OnInit {
   public trackEmployee(type) {
     this.reset = false;
     if (type == 'record') {
+      this.show = true;
       this.service.trackEmployee(this.employee.name)
       .subscribe(
         data => {
           window.location.href = '../../CamSight/output.avi';
-          window.location.href = '../../CamSight/Frame.jpg';
           this.reset = true;
+          this.done = true;
+          this.show = false;
         }
       )
     } else if (type == 'stream') {

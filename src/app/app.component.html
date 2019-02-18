@@ -13,17 +13,20 @@
                 [imageQuality]="1"
                 (initError)="handleInitError($event)"></webcam>
                 <br />
-                <button mat-raised-button color="primary" (click)="triggerSnapshot($event);">Capture Image</button>
+                <button mat-raised-button (click)="triggerSnapshot($event);">Capture Image</button>
               </form>
               <br />
                   <div *ngIf="webcamImage" style="text-align: center">
                     <h6 style="font-weight: 600">Employee to be tracked :</h6>
                     <span>{{employee.name}}</span><br />
                     <img [src]="employee.image.imageAsDataUrl" style="margin-bottom: 15px"/><br />
-                    <button mat-raised-button color="primary" (click)="trackEmployee('record');" style="margin-right:10px">Track in Recorded Video</button>
-                    <button mat-raised-button color="primary" (click)="trackEmployee('stream');">Track in Live Video Stream</button> <br />
-                    <button mat-raised-button color="warn" (click)="webcamImage='';employee={}" style="margin-top:10px" [disabled]="!reset">Reset</button>
-                  </div>
+                    <button mat-raised-button (click)="trackEmployee('record');" style="margin-right:10px">Track in Recorded Video</button>
+                    <button mat-raised-button (click)="trackEmployee('stream');">Track in Live Video Stream</button> <br />
+                    <button mat-raised-button color="warn" (click)="webcamImage='';employee={};done=false;" style="margin-top:10px;margin-bottom: 10px" [disabled]="!reset">Reset</button><br />
+                    <span *ngIf="done" style="font-weight: 600">Last detected frame in video :</span><br />
+                    <img src='../../CamSight/Frame.jpg' *ngIf="done">
+                </div>
+                <mat-spinner class="example-margin" *ngIf="show"></mat-spinner>
         </mat-card>
     </div>
     <div class="col-1"></div>

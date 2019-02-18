@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {WebcamModule} from 'ngx-webcam';
 
 import {TrackEmployeeService} from './track-employee.service';
@@ -29,6 +30,7 @@ import { AppComponent } from './app.component';
     MatButtonModule,
     WebcamModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     HttpModule
   ],
   providers: [TrackEmployeeService],

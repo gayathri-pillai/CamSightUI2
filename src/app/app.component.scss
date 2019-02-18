@@ -1,5 +1,10 @@
 .header {
-    background: #3f51b5;
+    background: #85222E;
+    color: white;
+}
+
+button {
+    background-color: #85222E;
     color: white;
 }
 
@@ -24,4 +29,12 @@
             }
         }
     }
+}
+
+.mat-spinner {
+    margin: 0 auto 0 auto;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #85222E;
 }
